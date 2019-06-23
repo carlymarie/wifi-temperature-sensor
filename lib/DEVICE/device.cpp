@@ -30,10 +30,10 @@ void DEVICE::run()
 {
     if (wifi.run())
     {
-        // if (mqtt->run())
-        // {
+        if (mqtt->run())
+        {
         //     lm35.run();
         //     tmr.run();
-        // }
+        }
     }
 }
