@@ -21,7 +21,6 @@ void MQTT::setupSensor()
     data["availability_topic"] = MQTT_AVAILABILITY_TOPIC;
     data["payload_available"] = MQTT_WILL_ONLINE;
     data["payload_not_available"] = MQTT_WILL_OFFLINE;
-    data["retain"] = MQTT_RETAIN;
     data["qos"] = MQTT_QOS;
 
     String config;
