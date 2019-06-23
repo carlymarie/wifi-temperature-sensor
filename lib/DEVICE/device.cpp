@@ -16,7 +16,7 @@ void DEVICE::setup()
     mqtt->setup();
     lm35.setup();
 
-    tmr.setInterval(60 * 1000, [this]() { // Every 1 minute
+    tmr.setInterval(1000, [this]() { // Every 1 minute
         sendData();
     });
 }
@@ -32,8 +32,8 @@ void DEVICE::run()
     {
         if (mqtt->run())
         {
-        //     lm35.run();
-        //     tmr.run();
+             lm35.run();
+             tmr.run();
         }
     }
 }
