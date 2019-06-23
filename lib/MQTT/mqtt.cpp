@@ -25,7 +25,7 @@ void MQTT::setupSensor()
     data["qos"] = MQTT_QOS;
 
     String config;
-    serializeJson(data, Serial);
+    serializeJson(data, config);
     if (client.publish(MQTT_CONFIG_TOPIC.c_str(), config.c_str(), MQTT_RETAIN)) // Publish Discoery Configuration
     {
         DEBUG_PRINT(MQTT_DEVICE_NAME, false);
