@@ -10,11 +10,6 @@ class LM35
 public:
     LM35();
     void setup();
-    void run();
     float getTemp();
-
-private:
-    float temp;
-    unsigned long ticks;
 };
 #endif // LM35_H_
