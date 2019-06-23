@@ -16,15 +16,21 @@ void DEVICE::setup()
     mqtt->setup();
     lm35.setup();
 
-    tmr.setInterval(1000, [this]() { // Every 1 minute
+    tmr.setInterval(100, [this]() { // Every 1 minute
+        temps += lm35.getTemp();
+        ticks++;
+    });
+    tmr1.setInterval(10000, [this]() { // Every 1 minute
         sendData();
     });
 }
 void DEVICE::sendData()
 {
-    String payload = String(lm35.getTemp());
+    String payload = String(temps / ticks);
     DEBUG_PRINT("Temperature: " + payload, true);
     mqtt->client.publish(MQTT_STATE_TOPIC.c_str(), payload.c_str());
+    temps = 0;
+    ticks = 0;
 }
 void DEVICE::run()
 {
@@ -32,8 +38,9 @@ void DEVICE::run()
     {
         if (mqtt->run())
         {
-             //lm35.run();
-             tmr.run();
+            //lm35.run();
+            tmr.run();
+            tmr1.run();
         }
     }
 }

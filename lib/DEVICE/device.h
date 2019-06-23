@@ -21,7 +21,10 @@ public:
 private:
   WIFI wifi;
   TIMER tmr;
+  TIMER tmr1;
   LM35 lm35;
+  float temps = 0.0;
+  unsigned long ticks = 0;
   void mqttCallback(char *topic, byte *payload, unsigned int length);
   void sendData();
 };
