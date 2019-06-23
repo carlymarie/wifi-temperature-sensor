@@ -32,7 +32,7 @@ void DEVICE::run()
     {
         if (mqtt->run())
         {
-             lm35.run();
+             //lm35.run();
              tmr.run();
         }
     }
