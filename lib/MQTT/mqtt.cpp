@@ -16,9 +16,11 @@ void MQTT::setupSensor()
     JsonObject data = buffer.createNestedObject();
     // HEATING
     data["name"] = MQTT_DEVICE_NAME;
-    data["command_topic"] = MQTT_COMMAND_TOPIC;
     data["state_topic"] = MQTT_STATE_TOPIC;
+    data["unit_of_measurement"] = "°F";
     data["availability_topic"] = MQTT_AVAILABILITY_TOPIC;
+    data["payload_available"] = MQTT_WILL_ONLINE;
+    data["payload_not_available"] = MQTT_WILL_OFFLINE;
     data["retain"] = MQTT_RETAIN;
     data["qos"] = MQTT_QOS;
 

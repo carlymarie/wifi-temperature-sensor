@@ -10,7 +10,7 @@
 
 // LWT Topics
 const String MQTT_DEVICE_NAME = getUniqueID();
-const String MQTT_AVAILABILITY_TOPIC = MQTT_DISCOVERY_PREFIX "/" + MQTT_DEVICE_NAME;
+const String MQTT_AVAILABILITY_TOPIC = MQTT_DISCOVERY_PREFIX "/" + MQTT_DEVICE_NAME + "/status";
 
 // Topics
 const String MQTT_BASE = MQTT_DISCOVERY_PREFIX "/sensor/" + MQTT_DEVICE_NAME + "/";
