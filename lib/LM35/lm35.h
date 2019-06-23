@@ -15,6 +15,6 @@ public:
 
 private:
     float temp;
-    long ticks;
+    unsigned long ticks;
 };
 #endif // LM35_H_

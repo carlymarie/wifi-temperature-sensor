@@ -15,22 +15,15 @@ void DEVICE::setup()
     wifi.setup();
     mqtt->setup();
     lm35.setup();
-    // Setup MQTT Callback Function (Don't touch)
-    mqtt->client.setCallback([this](char *_topic, byte *_payload, unsigned int _length) {
-        mqttCallback(_topic, _payload, _length);
-    });
+
     tmr.setInterval(60 * 1000, [this]() { // Every 1 minute
         sendData();
     });
 }
-void DEVICE::mqttCallback(char *_topic, byte *_payload, unsigned int _length)
-{
-    // Convert payload to a string
-    String callback = payload2string(_payload, _length);
-}
 void DEVICE::sendData()
 {
     String payload = String(lm35.getTemp());
+    DEBUG_PRINT("Temperature: " + payload, true);
     mqtt->client.publish(MQTT_STATE_TOPIC.c_str(), payload.c_str());
 }
 void DEVICE::run()

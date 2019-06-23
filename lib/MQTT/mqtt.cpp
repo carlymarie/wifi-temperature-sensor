@@ -37,16 +37,6 @@ void MQTT::setupSensor()
         DEBUG_PRINT(F("[ERROR] Unable to publish to: "), false);
     }
     DEBUG_PRINT(MQTT_CONFIG_TOPIC, true);
-
-    if (client.subscribe(MQTT_COMMAND_TOPIC.c_str(), MQTT_QOS)) // Subscribe to Command Topic
-    {
-        DEBUG_PRINT(F("[OK] Subscribed to: "), false);
-    }
-    else
-    {
-        DEBUG_PRINT(F("[ERROR] Unable to subscribe to: "), false);
-    }
-    DEBUG_PRINT(MQTT_COMMAND_TOPIC, true);
 }
 bool MQTT::run()
 {
