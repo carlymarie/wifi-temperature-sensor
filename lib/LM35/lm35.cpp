@@ -12,6 +12,6 @@ void LM35::setup()
 float LM35::getTemp()
 {
     int analogValue = analogRead(PIN_LM35);
-    return analogValue;
-    //return (((analogValue * 3.03) /1023 * 100) - 1.2) * 1.8 + 32;
+    //return analogValue;
+    return (((analogValue * 3.03) /1023 * 100) - 2) * 1.8 + 32;
 }
